@@ -4,7 +4,7 @@ async function getSpendByHeadData() {
     return new Promise((resolve, reject) => {
         try {
             var request = new sql.Request();
-            request.query(`select Head as name,Actual as value from [BI_CONTENT].[vPurchaseSpendHead] order by Actual desc`, function (error, recordset) {
+            request.query(`select Head as name,Actual as value from [vPurchaseSpendHead] order by Actual desc`, function (error, recordset) {
                 if (error) {
                     console.error(error);
                     reject("error occured")
@@ -24,7 +24,7 @@ async function getDirectIndirect() {
     return new Promise((resolve, reject) => {
         try {
             var request = new sql.Request();
-            request.query(`select Direct,Indirect as InDirect from BI_CONTENT.vPurchaseDirectIndirect`, function (error, recordset) {
+            request.query(`select Direct,Indirect as InDirect from vPurchaseDirectIndirect`, function (error, recordset) {
                 if (error) {
                     console.error(error);
                     reject("error occured")
@@ -47,7 +47,7 @@ async function getplannedActual() {
             request.query(`SELECT  [Period]
             ,[FinYear]
             ,[BUDGET]
-            ,[ACTUAL] FROM [BI_CONTENT].[vwSpendBudAct]`, function (error, recordset) {
+            ,[ACTUAL] FROM [vwSpendBudAct]`, function (error, recordset) {
                 if (error) {
                     console.error(error);
                     reject("error occured")

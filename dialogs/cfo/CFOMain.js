@@ -30,6 +30,15 @@ class CFOMain extends ComponentDialog {
         await step.context.sendActivity({ type: ActivityTypes.Typing });
         try {
             var data = await getData.getCFOData();
+            // var data2 = [];
+            // data.forEach(element => {
+            //     var e = {};
+            //     for (const [key, value] of Object.entries(element)) {
+            //         e[key] = value.trim();
+            //       }
+            //     data2.push(e);
+            // });
+            // data = data2;
             if ((data.length > 0) && (data !== config.errorMessage)) {
                 var imageData = await imageDataApi.generateCFODashboard(data);
                 var result = await cfoCard.cardToDisplay(config.logoToDisplay[0], config.cardTitle.cfoDashboard, imageData);

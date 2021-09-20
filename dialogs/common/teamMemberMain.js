@@ -35,14 +35,14 @@ class teamMain extends ComponentDialog {
             if (step.context.activity && step.context.activity.text) {
                 if (step.context.activity.text.toLowerCase().includes('purchase')) {
                     step.options.persona = config.personaList[0].nameToDisplay
-                    var cardsResult = await teamCard.teamCard('procurement', config.procurmentTeamCard)
+                    var cardsResult = await teamCard.teamCard('Proment', config.procurmentTeamCard)
                     await step.context.sendActivity(MessageFactory.carousel(cardsResult));
                     await timeOut.timeout(1000);
                     await step.context.sendActivity({ attachments: [CardFactory.adaptiveCard(serviceList.cardToDisplay(config.purchaseManagerServiceList))] })
                 } 
             }
             else if ((step.options.persona === config.personaList[0].nameToDisplay)) {
-                var cardsResult = await teamCard.teamCard('procurement', config.procurmentTeamCard)
+                var cardsResult = await teamCard.teamCard('Proment', config.procurmentTeamCard)
                 step.options.persona = config.personaList[0].nameToDisplay
                 await step.context.sendActivity(MessageFactory.carousel(cardsResult));
                 await timeOut.timeout(1000);

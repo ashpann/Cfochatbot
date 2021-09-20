@@ -38,6 +38,7 @@ class prMain extends ComponentDialog {
                 await step.next()
             } else {
                 let result = await prData.getPRData()
+                console.log("data is: ", result);
                 if ((result.length > 0) && (result !== config.errorMessage)) {
                     let cardToSend = await listCard.itemListCard(result, config.logoToDisplay[0],
                         config.cardTitle.prListCard, config.listCardAction.pr)
@@ -68,7 +69,7 @@ class prMain extends ComponentDialog {
                 if ((result.length > 0) && (result !== config.errorMessage)) {
 
                     let cardToSend = await detailCard.detailCard(result[0], config.poDetailCard, 'po', config.logoToDisplay[0],
-                        config.cardTitle.poDetailCard, config.poDetailCardButtons[0])
+                        config.cardTitle.poDetailCard)
                     await step.context.sendActivity({ attachments: [CardFactory.adaptiveCard(cardToSend)] })
 
                     await timeOut.timeout(1000);

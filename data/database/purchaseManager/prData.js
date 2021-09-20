@@ -6,14 +6,14 @@ async function getPRData(idTofetchData) {
         try {
             var request = new sql.Request();
             request.input('idTofetchData', sql.VarChar, idTofetchData);
-            request.query(`SELECT top 10  [CreateDate] as date
+            request.query(`SELECT top 3  [CreateDate] as date
             ,[PrNumber] as id
             ,[Description]
             ,[Quantity]
             ,[UnitPrice]
             ,[Price] as Amount
             ,[PrStatus] as Status
-            FROM [BI_CONTENT].[vwPurchaseRequisition] where [PrNumber] = IIF(@idTofetchData IS NULL, [PrNumber], @idTofetchData)
+            FROM [vwPurchaseRequisition] where [PrNumber] = IIF(@idTofetchData IS NULL, [PrNumber], @idTofetchData)
             order by cast([CreateDate] as date) desc`, function (error, recordset) {
                 if (error) {
                     console.error(error);

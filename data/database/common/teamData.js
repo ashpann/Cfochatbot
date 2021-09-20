@@ -24,7 +24,7 @@ async function getTeamData(departmentName) {
             ,[WinRate]
             ,[AverageDealSize]
             ,[Email] 
-            FROM [BI_CONTENT].[vEmployee] where [Department] = @departmentName`, function (error, recordset) {
+            FROM [vEmployee] where [Department] = @departmentName`, function (error, recordset) {
                 if (error) {
                     console.error(error);
                     reject("error occured")

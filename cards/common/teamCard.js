@@ -4,6 +4,7 @@ const { CardFactory } = require('botbuilder')
 module.exports.teamCard = async (departmentName, labels) => {
     try {
         var data = await teamData.getTeamData(departmentName);
+        console.log("data is: ", data);
         let cards = [];
         var length = data.length;
         if (length % 2 !== 0) {
@@ -30,7 +31,7 @@ module.exports.teamCard = async (departmentName, labels) => {
                                 "horizontalAlignment": "Center",
                                 "size": "Large",
                                 "style": "Person",
-                                "url": `${data[i].ProfilePhoto}`
+                                "url": `data:image/png;base64,${data[i].ProfilePhoto}`
                             }
                         ]
                     },

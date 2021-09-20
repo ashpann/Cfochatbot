@@ -14,9 +14,9 @@ exports.headerWithAccountName = (logoToDisplay, text, accountName) => {
                         "items": [
                             {
                                 "type": "Image",
-                                "altText": "Logo of Celebal Technologies",
+                                "altText": "Logo of MandelBulb Technologies",
                                 "horizontalAlignment": "Left",
-                                "url": `${logos.CelebalTech}`,
+                                "url": `${logos.MBTech}`,
                                 "size": "Small"
                             }
                         ],
@@ -103,9 +103,9 @@ exports.headerWithoutAccountName = (logoToDisplay, text) => {
                         "items": [
                             {
                                 "type": "Image",
-                                "altText": "Logo of Celebal Technologies",
+                                "altText": "Logo of MandelBulb Technologies",
                                 "horizontalAlignment": "Left",
-                                "url": `${logos.CelebalTech}`,
+                                "url": `${logos.MBTech}`,
                                 "size": "Small"
                             }
                         ],

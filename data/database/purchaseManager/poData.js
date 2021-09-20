@@ -6,7 +6,7 @@ async function getPOData(idTofetchData) {
         try {
             var request = new sql.Request();
             request.input('idTofetchData', sql.VarChar, idTofetchData);
-            request.query(`SELECT top 10 [PoDate] as date
+            request.query(`SELECT top 3 [PoDate] as date
             ,[PoNumber] as id
             ,[Description]
             ,[UnitPrice]
@@ -18,7 +18,7 @@ async function getPOData(idTofetchData) {
             when [PoStatus]=9 then 'Active'
             when [PoStatus]=2 then 'Approved'
             end as Status
-            FROM [BI_CONTENT].[vwPurchaseOrder] where [PoNumber] = IIF(@idTofetchData IS NULL, [PoNumber], @idTofetchData )
+            FROM [vwPurchaseOrder] where [PoNumber] = IIF(@idTofetchData IS NULL, [PoNumber], @idTofetchData )
             order by cast([PoDate] as date) desc`, function (error, recordset) {
                 if (error) {
                     console.error(error);

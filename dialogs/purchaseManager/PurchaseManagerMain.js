@@ -28,7 +28,7 @@ class purchaseManagerMain extends ComponentDialog {
     async purchaseManagerWaterfallStep1(step) {
         await step.context.sendActivity({ type: ActivityTypes.Typing });
         try {
-            let accountDetails = await this.userData.get(step.context);
+            // let accountDetails = await this.userData.get(step.context);
             var cardToSend = await graphImageCard.graphImage(config.logoToDisplay[0], config.purchaseManagerServiceList[0])
             await step.context.sendActivity({ attachments: [CardFactory.adaptiveCard(cardToSend)] })
             await (1000);
